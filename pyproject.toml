@@ -1,9 +1,10 @@
 [project]
 name = "microadv"
 version = "0.1.0"
-description = "Add your description here"
+description = "Personal playground to get familiar with Micropython/UIFlow on M5Stack Cardputer ADV"
 readme = "README.md"
 requires-python = ">=3.14"
+
 dependencies = [
     "pre-commit>=4.4.0",
 ]

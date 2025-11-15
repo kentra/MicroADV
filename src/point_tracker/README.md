@@ -1,3 +1,19 @@
+## Tools
+
+```
+
+    "adafruit-ampy>=1.1.0",
+    "esptool>=5.1.0",
+    "micropy-cli>=3.6.0",
+    "mpremote>=1.26.1",
+    "mpy-cross>=1.26.1.post2",
+    "pyright>=1.1.407",
+    "rshell>=0.0.36",
+    "setuptools>=80.9.0",
+    "ty>=0.0.1a25",
+
+```
+
 
 ## Included Resources
 

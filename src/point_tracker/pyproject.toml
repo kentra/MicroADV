@@ -3,14 +3,12 @@ name = "point_tracker"
 version = "0.1.0"
 description = "Personal playground to get familiar with Micropython/UIFlow on M5Stack Cardputer ADV"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.12"
 dependencies = [
-    "adafruit-ampy>=1.1.0",
-    "esptool>=5.1.0",
-    "mpremote>=1.26.1",
-    "pyright>=1.1.407",
-    "rshell>=0.0.36",
-    "ty>=0.0.1a25"]
+    "micropy-cli>=4.2.2",
+    "requests>=2.31.0",
+    "setuptools<=81",
+]
 
 
 
