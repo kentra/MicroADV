@@ -1,7 +1,7 @@
 [project]
-name = "microadv"
+name = "point_tracker"
 version = "0.1.0"
-description = "Add your description here"
+description = "Personal playground to get familiar with Micropython/UIFlow on M5Stack Cardputer ADV"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
