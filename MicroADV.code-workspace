@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "MicroADV",
+			"path": "."
+		},
+		{
+			"name": "serial://dev/tty.usbmodem2101",
+			"uri": "serial://%2fdev%2ftty.usbmodem2101/flash"
+		},
+	],
+	"settings": {
+		"files.associations": {
+			".mpyproject.json": "jsonc"
+		}
+	},
+}

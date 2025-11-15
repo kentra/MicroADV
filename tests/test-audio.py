@@ -1,24 +1,14 @@
-from app.network import connect_wifi
-from app.gui.ui_elements import UI
-from app.hw_tools.keyboard import KeyboardTools
-from app.mqtt_tools import MQTTTool
-from hardware import sdcard
-
-import time
 import M5
 import asyncio
 
+from hardware import sdcard
 
-async def setup() -> None:
+
+def setup():
     M5.begin()
-    time.timezone("GMT+1")
-    connect_wifi(
-        ssid="private.kentra.org", password="kakekjeks", hostname="M5CardputerADV"
-    )
-
-    # Mount SDCARD
+    # init SDCard
     sdcard.SDCard(slot=3, width=1, sck=40, miso=39, mosi=14, cs=12, freq=20000000)
-    await mqtt.connect()
+    # init speaker
     M5.Speaker.config(
         buzzer=False,
         pin_data_out=46,  # Serial data line of I2S, representing audio data in binary complement. ASDOUT on ES8311
@@ -33,32 +23,27 @@ async def setup() -> None:
         i2s_port=0,
         use_dac=False,
     )
-    M5.Speaker.setVolumePercentage(50)
-    # M5.Speaker.begin()
-    # M5.Speaker.tone(4000, 50)
-    # M5.Speaker.playWavFile("/sd/Mp3/")
+    M5.Speaker.begin()
+    M5.Speaker.tone(4000, 50)
+    M5.Speaker.playWavFile("/sd/Mp3/")
+    # M5.Speaker.playWavFile("/system/common/wav/bg.wav")
+    # Speaker.setVolumePercentage(50)
+
+    # asyncio.create_task(coro=loop())
+    # asyncio.sleep_ms(10)∏∏
 
 
 async def loop() -> None:
     M5.update()
-    kb.kb.tick()
-    await mqtt.check_msg()
-    # await mqtt_client.check_msg(attempts=2)
-    await asyncio.sleep_ms(500)
+    # kb.kb.tick()
+    M5.Speaker.playWavFile("/system/common/wav/bg.wav")
+    await asyncio.sleep_ms(200)
 
 
 if __name__ == "__main__":
     try:
-
-        # Initialize Tools
-        await mqtt: MQTTTool = MQTTTool()
-        kb: KeyboardTools = KeyboardTools()
-        ui: UI = UI()
-
-        # Run Setup
-        asyncio.run(main=setup())
-        # Start main loop
-        asyncio.run(main=loop())
+        setup()
+        asyncio.run(loop())
     except (asyncio.CancelledError, KeyboardInterrupt) as e:
         from utility import print_error_msg
 

@@ -1,6 +1,1 @@
-def main():
-    print("Hello from microadv!")
-
-
-if __name__ == "__main__":
-    main()
+# main.py -- put your code here!
