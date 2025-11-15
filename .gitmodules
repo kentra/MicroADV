@@ -1,0 +1,3 @@
+[submodule "src/uiflow-micropython"]
+	path = src/uiflow-micropython
+	url = git@github.com:m5stack/uiflow-micropython.git
